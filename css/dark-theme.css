@@ -1,0 +1,366 @@
+/* TEMA PSICHEDELICO - dark-theme.css
+   Questo file contiene tutte le regole CSS che vengono applicate
+   quando la classe 'psychedelic-mode' è attiva sul tag <body>.
+   Ogni sezione è commentata in modo dettagliato per spiegare
+   il motivo di ogni scelta stilistica e la funzione di ogni regola.*/
+
+/*
+  Impostazioni generali del tema psichedelico:
+  - Definizione di variabili CSS per colori principali, testo, link, box, ecc.
+  - Applicazione di uno sfondo a gradiente molto acceso e colorato.
+  - Font scelto per richiamare lo stile anni '70, con transizioni fluide.
+*/
+body.psychedelic-mode {
+  --color-accent: #ff00cc;          /* Colore principale acceso, usato per bordi e dettagli */
+  --color-text: #000;              /* Testi neri per massima leggibilità su sfondi chiari */
+  --color-footer: #fffb00;         /* Giallo brillante per il footer, molto visibile */
+  --color-link: #00ffe7;           /* Azzurro neon per i link, risalta sullo sfondo */
+  --color-link-hover: #ff00cc;     /* Colore evidenziato al passaggio del mouse */
+  --color-box: #fff0f5;            /* Sfondo per box chiari, leggermente rosato */
+
+  background: linear-gradient(135deg, #fffb00 0%, #ff00cc 100%); /* Sfondo psichedelico diagonale */
+  color: var(--color-text);         /* Colore testo base */
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive, 'Arial Rounded MT Bold', sans-serif; /* Font anni '70, giocoso e informale */
+}
+
+/*
+  Navbar e Footer:
+  - Sfondo a pattern psichedelico orizzontale, alternando i colori principali.
+  - Testi neri per leggibilità.
+  - Bordo inferiore rosa acceso e ombra per effetto "glow".
+*/
+body.psychedelic-mode .navbar,
+body.psychedelic-mode .footer {
+  background: repeating-linear-gradient(
+    90deg,
+    #fffb00 0 30px,
+    #ff00cc 30px 60px,
+    #00ffe7 60px 90px,
+    #fffb00 90px 120px
+  );
+  color: #000;
+  border-bottom: 4px solid #ff00cc;
+  box-shadow: 0 4px 32px 0 #ff00cc55;
+}
+
+/*
+  Link nella navbar e nel footer:
+  - Colore azzurro neon, con ombra colorata per effetto "glow".
+  - Grassetto e spaziatura aumentata per richiamare lo stile psichedelico.
+  - Dimensione testo aumentata per visibilità.
+  - Transizione per effetto al passaggio del mouse.
+*/
+body.psychedelic-mode .navbar a,
+body.psychedelic-mode .footer a {
+  color: var(--color-link);
+  text-shadow: 0 0 6px #ff00cc, 0 0 2px #fffb00;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  font-size: 19px;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+/*
+  Hover sui link:
+  - Cambia colore e ombra per dare feedback visivo immediato.
+*/
+body.psychedelic-mode .navbar a:hover,
+body.psychedelic-mode .footer a:hover {
+  color: var(--color-link-hover);
+  text-shadow: 0 0 12px #00ffe7, 0 0 8px #fffb00;
+}
+
+/*
+  Hero section (intestazione grande):
+  - Sfondo a cerchi concentrici psichedelici.
+  - Colore testo scuro per contrasto.
+  - Bordo inferiore arrotondato e ombra per profondità.
+  - Padding abbondante per dare "respiro" alla sezione.
+*/
+body.psychedelic-mode .hero {
+  background: repeating-radial-gradient(
+    circle at 50% 50%, /* Centro del gradiente */
+    #fffb00 0 60px, /* Cerchio giallo */
+    #ff00cc 60px 120px, /* Cerchio rosa */
+    #00ffe7 120px 180px, /* Cerchio azzurro */
+    #fffb00 180px 240px /* Altro cerchio giallo */
+  );
+  color: #2d0036; /* Testo scuro per contrasto */
+  border-radius: 0 0 48px 48px; /* Bordo arrotondato sotto */
+  box-shadow: 0 8px 40px #ff00cc55; /* Ombra rosa */
+  text-align: center; /* Testo centrato */
+  padding: 230spx 0 60px 0; /* Spazio sopra/sotto (spx è refuso, dovrebbe essere px) */
+}
+
+/*
+  Titolo nella hero:
+  - Giallo saturo per massima visibilità.
+  - Dimensione grande e ombra per effetto "glow".
+  - Padding e bordo arrotondato per effetto "badge".
+*/
+body.psychedelic-mode .hero h2 {
+  color: #fff200; /* Giallo saturo titolo */
+  font-size: 45px; /* Dimensione grande titolo */
+  margin-bottom: 15px; /* Spazio sotto titolo */
+  letter-spacing: 2px; /* Spaziatura lettere */
+  text-shadow: 0 0 16px #fffb00, 0 0 8px #a61e00; /* Ombra glow */
+  padding: 8px 24px; /* Spazio interno badge */
+  border-radius: 18px; /* Bordo arrotondato badge */
+}
+
+/*
+  Paragrafi nella hero:
+  - Testo nero per leggibilità su sfondo chiaro.
+*/
+body.psychedelic-mode .hero p {
+  color: #000;
+}
+
+/*
+  Immagini della galleria:
+  - Forma circolare, bordo doppio rosa acceso.
+  - Ombra gialla e azzurra per effetto neon.
+  - Filtro saturazione e hue-rotate per colori "accesi".
+  - Sfondo a gradiente e transizione per effetto dinamico.
+*/
+body.psychedelic-mode .galleria-legumi img {
+  border-radius: 50%;
+  border: 6px double #ff00cc;
+  box-shadow: 0 0 32px 8px #fffb00, 0 0 12px 2px #00ffe7;
+  filter: saturate(2) hue-rotate(45deg) contrast(1.2);
+  transition: transform 0.3s, filter 0.3s;
+  background: linear-gradient(135deg, #fffb00 0%, #ff00cc 100%);
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+  Hover su immagini della galleria:
+  - Ingrandisce e ruota leggermente l'immagine.
+  - Aumenta saturazione e cambia hue per effetto "psichedelico".
+  - Ombra più intensa.
+*/
+body.psychedelic-mode .galleria-legumi img:hover {
+  transform: scale(1.12) rotate(-8deg);
+  filter: saturate(3) hue-rotate(120deg) contrast(1.4);
+  box-shadow: 0 0 64px 16px #ff00cc, 0 0 24px 8px #00ffe7;
+}
+
+/*
+  Contenitore galleria:
+  - Sfondo a strisce diagonali colorate.
+  - Bordo arrotondato e ombra per "profondità".
+  - Padding e margine per separazione dal resto della pagina.
+*/
+body.psychedelic-mode .galleria-legumi {
+  background: repeating-linear-gradient(
+    135deg,
+    #fffb00 0 40px,
+    #ff00cc 40px 80px,
+    #00ffe7 80px 120px,
+    #fffb00 120px 160px
+  );
+  border-radius: 24px;
+  padding: 32px 0;
+  margin-bottom: 64px;
+  box-shadow: 0 0 32px #ff00cc88;
+}
+
+
+/*
+  Distanza tra immagini nello slider/carousel:
+  - gap orizzontale e verticale per separare le immagini.
+*/
+body.psychedelic-mode .carousel {
+  gap: 32px 16px;
+}
+
+/*
+  Testi della galleria:
+  - Testo nero per leggibilità.
+  - Dimensione uniforme.
+  - Margini e ombra per "glow".
+  -testi sostitutivi dse non carica l'immagine
+*/
+body.psychedelic-mode .galleria-legumi p,
+body.psychedelic-mode .galleria-legumi figcaption {
+  color: #000;
+  font-size: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  text-shadow: 0 0 8px #fffb00;
+}
+
+/*
+  Sfondo della lightbox fullscreen:
+  - Pattern radiale psichedelico per effetto "wow".
+*/
+body.psychedelic-mode .lightbox-overlay {
+  background: repeating-radial-gradient(
+    circle at 50% 50%,
+    #ff00cc 0 80px,
+    #00ffe7 80px 160px,
+    #fffb00 160px 240px,
+    #ff00cc 240px 320px
+  );
+}
+
+/*
+  Immagine ingrandita nella lightbox:
+  - Bordo azzurro, ombra gialla e rosa, filtro saturazione.
+  - Forma arrotondata.
+*/
+body.psychedelic-mode .lightbox-overlay img {
+  border-radius: 40px;
+  border: 8px double #00ffe7;
+  box-shadow: 0 0 64px #fffb00, 0 0 24px #ff00cc;
+  filter: saturate(2) hue-rotate(90deg);
+  max-width: 90vw;
+  height: auto;
+}
+
+/*
+  Bottone chiusura lightbox:
+  - Colore giallo, ombra rosa e azzurra, dimensione grande.
+*/
+body.psychedelic-mode .close-btn {
+  color: #fffb00;
+  text-shadow: 0 0 12px #ff00cc, 0 0 8px #00ffe7;
+  font-size: 3rem;
+}
+
+/*
+  Hover sul bottone chiusura:
+  - Cambia colore e ombra per feedback visivo.
+*/
+body.psychedelic-mode .close-btn:hover {
+  color: #00ffe7;
+  text-shadow: 0 0 24px #ff00cc, 0 0 16px #fffb00;
+}
+
+/*
+  Box newsletter:
+  - Sfondo a gradiente, testo nero, bordo azzurro, ombra rosa.
+  - Bordo arrotondato e padding per "comfort" visivo.
+*/
+body.psychedelic-mode .newsletter-box {
+  background: linear-gradient(135deg, #fffb00 0%, #ff00cc 100%);
+  color: #000;
+  border-radius: 24px;
+  box-shadow: 0 0 32px #ff00cc88;
+  border: 4px double #00ffe7;
+  max-width: 95vw;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/*
+  Input e pulsanti newsletter:
+  - Sfondo chiaro, testo nero, bordo rosa, ombra gialla.
+  - Font psichedelico, dimensione aumentata, responsive.
+  - Bordo arrotondato e padding per accessibilità.
+*/
+body.psychedelic-mode .newsletter-box input,
+body.psychedelic-mode .newsletter-box button {
+  background: #fff0f5;
+  color: #000;
+  border: 2px solid #ff00cc;
+  border-radius: 12px;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive, 'Arial Rounded MT Bold', sans-serif;
+  font-size: 18px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0 0 8px #fffb00;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+}
+
+/*
+  Bottone invia newsletter:
+  - Sfondo rosa acceso, testo chiaro, bordo azzurro.
+  - Grassetto e spaziatura aumentata.
+  - Transizione per effetto hover.
+*/
+body.psychedelic-mode .newsletter-box button {
+  background: #ff00cc;
+  color: #fff0f5;
+  border: 2px solid #00ffe7;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/*
+  Hover pulsante newsletter:
+  - Cambia sfondo e colore testo per feedback visivo.
+*/
+body.psychedelic-mode .newsletter-box button:hover {
+  background: #fffb00;
+  color: #ff00cc;
+  border: 2px solid #ff00cc;
+}
+
+/*
+  Bottone per attivare/disattivare il tema:
+  - Bordo rosa, testo nero, sfondo giallo, font psichedelico.
+  - Ombra rosa e dimensione aumentata.
+*/
+body.psychedelic-mode .theme-toggle-btn {
+  border-color: #ff00cc;
+  color: #000;
+  background: #fffb00;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive, 'Arial Rounded MT Bold', sans-serif;
+  font-size: 19px;
+  letter-spacing: 2px;
+  box-shadow: 0 0 12px #ff00cc;
+}
+
+/*
+  Hover bottone tema:
+  - Cambia sfondo e colore testo per effetto psichedelico.
+*/
+body.psychedelic-mode .theme-toggle-btn:hover {
+  background: #ff00cc;
+  color: #fffb00;
+  box-shadow: 0 0 24px #fffb00;
+}
+
+/*
+  Hamburger menu:
+  - Colore nero per massima leggibilità.
+  - Forza il colore anche su SVG.
+*/
+body.psychedelic-mode .hamburger,
+body.psychedelic-mode .navbar .hamburger {
+  color: #000 !important;
+  fill: #000 !important;
+}
+
+/*
+  Bottone quiz:
+  - Stile psichedelico per il bottone "VAI AL QUIZ".
+  - Sfondo rosa acceso, testo chiaro, bordo azzurro, ombra rosa.
+  - Font psichedelico, dimensione responsive, transizione fluida.
+*/
+body.psychedelic-mode .quiz-btn {
+  background: #ff00cc;
+  color: #fff0f5;
+  border: 2px solid #00ffe7;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 12px;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive, 'Arial Rounded MT Bold', sans-serif;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  box-shadow: 0 0 12px #ff00cc;
+}
+
+/*
+  Hover bottone quiz:
+  - Cambia sfondo, colore testo e bordo per effetto "glow".
+*/
+body.psychedelic-mode .quiz-btn:hover {
+  background: #fffb00;
+  color: #ff00cc;
+  border: 2px solid #ff00cc;
+  box-shadow: 0 0 24px #fffb00;
+}

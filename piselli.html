@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PISELLI - Legumi</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <style>
+    .hero-image {
+      position: relative;
+      text-align: center;
+      color: white;
+      width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      max-width: 100vw;
+      min-width: 100vw;
+      margin-bottom: 70px;
+      overflow: hidden;
+    }
+    .hero-image img {
+      width: 100vw;
+      min-width: 100vw;
+      max-width: 100vw;
+      height: auto;
+      display: block;
+      border-radius: 0;
+      object-fit: cover;
+      max-height: 400px;
+    }
+    .hero-text {
+      position: absolute;
+      top: 65%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 5rem;
+      font-weight: 800;
+      letter-spacing: 6px;
+      text-shadow: 3px 3px 16px rgba(0,0,0,0.8);
+      text-transform: uppercase;
+      width: 100vw;
+      text-align: center;
+      margin: 0;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2, h3 {
+      color: #2f5233;
+    }
+    .box-ricetta ul {
+      list-style: disc inside;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+  <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+    <!-- HEADER E NAVBAR
+           Questa sezione contiene il logo, la navigazione principale,
+           il menu a tendina per i legumi, il bottone quiz e il cambio tema.
+           Ogni elemento è pensato per garantire accessibilità, coerenza grafica
+           e facilità d'uso sia su desktop che su mobile. -->
+      <h1 class="logo" style="display: flex; align-items: center; gap: 10px;">
+        <!-- Logo del sito: immagine e nome, allineati orizzontalmente -->
+        <img src="img/logos.png" alt="logos" style="height: 40px; width: auto;" />
+        <a href="index.html" style="text-decoration: none; color: inherit;">LEGUMINUM</a>
+      </h1>
+
+      <nav>
+        <!-- Icona hamburger per menu mobile, visibile solo su schermi piccoli -->
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links" id="navLinks">
+          <!-- Link principali del sito -->
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <!-- Menu a tendina per le pagine dei legumi -->
+            <a href="#" class="dropbtn">Legumi ▼</a>
+            <ul class="dropdown-content">
+              <li><a href="fagioli.html">Fagioli</a></li>
+              <li><a href="lenticchie.html">Lenticchie</a></li>
+              <li><a href="ceci.html">Ceci</a></li>
+              <li><a href="piselli.html">Piselli</a></li>
+              <li><a href="fave.html">Fave</a></li>
+            </ul>
+          </li>
+          <li><a href="curiosita.html">Curiosità</a></li>
+          <li><a href="chisiamo.html">Chi siamo</a></li>
+          <!-- Bottone per il quiz: apre una finestra popup -->
+          <button class="quiz-btn" onclick="window.open('quiz-popup.html', '_blank', 'width=700,height=800')">VAI AL QUIZ</button>
+          <!-- Bottone per cambiare tema: mostra un'icona che cambia a seconda del tema attivo -->
+          <button id="psychedelicToggle" class="theme-toggle-btn" aria-label="Cambia tema">
+            <img id="themeIcon" src="img/cambiotema.png" alt="Cambia tema psichedelico" style="height: 36px; width: 36px;">
+          </button>
+        </ul>
+      </nav>
+  </div>
+</header>
+
+
+  <main class="container"> <!-- Main -->
+    <div class="hero-image"> <!-- Contenitore hero -->
+      <img src="img/menu a tendina legumi/pagina piselli.jpg" alt="Piselli" style="width:100%;height:auto;max-width:100vw;"> <!-- Immagine responsive -->
+      <div class="hero-text" style="font-size:clamp(2.2rem,8vw,5rem);padding:0 10px;word-break:break-word;">PISELLI</div> <!-- Titolo responsive -->
+    </div>
+
+    <section>
+      <h2>Cosa sono i piselli?</h2> <!-- Titolo descrizione -->
+      <p><strong>I piselli</strong> sono legumi teneri e dolci, molto apprezzati in cucina per la loro <strong>versatilità</strong>. Si possono consumare <strong>freschi</strong>, secchi o surgelati e sono ideali per contorni, risotti, minestre e piatti unici. Contengono <strong>proteine</strong>, fibre, vitamine del gruppo B e sali minerali.</p> <!-- Paragrafo descrizione -->
+      <p>Piccole sfere di un <strong>verde brillante</strong>, i piselli portano con sé il profumo della <strong>primavera</strong> e la leggerezza dei primi raccolti. Teneri e delicati, si schiudono come gemme tra le dita, regalando un sapore <strong>dolce</strong> e rassicurante. In ogni baccello si nasconde un <strong>ricordo d’infanzia</strong>, un gesto familiare, una ricetta tramandata. Versatili e amabili, sanno adattarsi a ogni piatto con semplicità, donando <strong>freschezza</strong>, <strong>colore</strong> e un tocco gentile alla tavola.</p> <!-- Paragrafo poetico -->
+    </section>
+
+    <section>
+      <h2>Valori nutrizionali dei piselli (per 100g cotti)</h2> <!-- Titolo valori nutrizionali -->
+       <div class="nutrizione"> <!-- Box valori nutrizionali -->
+    <div class="box"> <!-- Box calorie -->
+      <div class="numero">120 kcal</div> <!-- Valore calorie -->
+      <div class="etichetta">Calorie</div> <!-- Etichetta calorie -->
+    </div>
+    <div class="box"> <!-- Box proteine -->
+      <div class="numero">8-9 g</div> <!-- Valore proteine -->
+      <div class="etichetta">Proteine</div> <!-- Etichetta proteine -->
+    </div>
+    <div class="box"> <!-- Box carboidrati -->
+      <div class="numero">20 g</div> <!-- Valore carboidrati -->
+      <div class="etichetta">Carboidrati</div> <!-- Etichetta carboidrati -->
+    </div>
+    <div class="box"> <!-- Box fibre -->
+      <div class="numero">7-8 g</div> <!-- Valore fibre -->
+      <div class="etichetta">Fibre</div> <!-- Etichetta fibre -->
+    </div>
+    <div class="box"> <!-- Box grassi -->
+      <div class="numero">0.5 g</div> <!-- Valore grassi -->
+      <div class="etichetta">Grassi</div> <!-- Etichetta grassi -->
+    </div>
+    <div class="box">
+      <div class="numero">2.5 mg</div>
+      <div class="etichetta">Ferro</div>
+    </div>
+    <div class="box">
+      <div class="numero">400 mg</div>
+      <div class="etichetta">Potassio</div>
+    </div>
+    <div class="box">
+      <div class="numero">50 mg</div>
+      <div class="etichetta">Magnesio</div>
+    </div>
+  </div>
+      <p>I piselli sono un alimento leggero e nutriente, adatti anche ai bambini e agli anziani.</p>
+    </section>
+
+    <section class="ricetta">
+      <img src="img/ricette/risottopiselli.jpg" alt="Risotto ai piselli">
+      <div class="testo-ricetta">
+        <h3>RISOTTO AI PISELLI</h3>
+        <div class="box-ricetta">
+          <h4>Ingredienti</h4>
+          <ul>
+            <li>300g di piselli</li>
+            <li>200g di riso Arborio</li>
+            <li>1 cipolla piccola</li>
+            <li>Brodo vegetale</li>
+            <li>Olio extravergine d'oliva</li>
+            <li>Parmigiano grattugiato</li>
+            <li>Sale e pepe</li>
+          </ul>
+        </div>
+        <div class="box-ricetta">
+          <h4>Preparazione</h4>
+          <p>Soffriggi la cipolla tritata, aggiungi i piselli e il riso. Sfuma con brodo e cuoci per circa 18 minuti. Manteca con parmigiano e servi caldo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ricetta">
+     <img src="img/ricette/uovaepiselli.jpg" alt="Uova e piselli">
+      <div class="testo-ricetta">
+        <h3>UOVA E PISELLI</h3>
+        <div class="box-ricetta">
+          <h4>Ingredienti</h4>
+          <ul>
+            <li>250g di piselli</li>
+            <li>2 uova</li>
+            <li>1 cipolla</li>
+            <li>Olio extravergine d'oliva</li>
+            <li>Sale e pepe</li>
+          </ul>
+        </div>
+        <div class="box-ricetta">
+          <h4>Preparazione</h4>
+          <p>Cuoci i piselli con cipolla e olio. Aggiungi le uova e mescola fino a farle rapprendere. Condisci e servi come secondo piatto o contorno ricco.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Legumi Sito. Tutti i diritti riservati. | Email: info@legumi.it | Via Brombeis, Napoli</p>
+    </div>
+  </footer>
+
+<script src="js/javatema.js"></script>
+
+</body>
+</html>

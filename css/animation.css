@@ -1,0 +1,152 @@
+/*
+   ANIMAZIONI E LIGHTBOX - animation.css
+   Questo file contiene tutte le regole CSS per animazioni,
+   slider/carousel di immagini e la funzionalità lightbox
+   (fullscreen al click sulle immagini). Ogni sezione è
+   commentata in modo dettagliato per spiegare la funzione
+   di ogni regola e la logica dietro le scelte stilistiche.
+  */
+
+/*
+  Contenitore principale del carousel di immagini:
+  - overflow: hidden; nasconde eventuali immagini che escono dai bordi.
+  - width: 100%; fa sì che il contenitore occupi tutta la larghezza disponibile.
+  - max-width: 100vw; impedisce di superare la larghezza della finestra.
+*/
+.carousel-wrapper {
+  overflow: hidden; /* Nasconde immagini che escono dai bordi */
+  width: 100%; /* Occupa tutta la larghezza disponibile */
+  max-width: 100vw; /* Non supera la larghezza viewport */
+}
+
+/*
+  Struttura del carousel:
+  - display: flex; allinea le immagini in orizzontale.
+  - width: max-content; la larghezza si adatta al contenuto (tutte le immagini).
+  - gap: spaziatura orizzontale tra le immagini, responsiva grazie a clamp.
+*/
+.carousel {
+  display: flex; /* Allinea immagini orizzontalmente */
+  width: max-content; /* Larghezza si adatta al contenuto */
+  gap: clamp(8px, 2vw, 24px); /* Spazio orizzontale tra immagini */
+}
+
+/*
+  Immagini all'interno del carousel:
+  - width/height: dimensioni responsivi con clamp per adattarsi a vari schermi.
+  - max-width/max-height: impedisce che le immagini superino certi limiti.
+  - margin-right: 0; elimina margine extra a destra.
+  - flex-shrink: 0; impedisce che le immagini si restringano troppo.
+  - object-fit: cover; mantiene il rapporto d'aspetto ritagliando l'immagine.
+  - border-radius: 12px; angoli arrotondati per look moderno.
+  - transition: animazione fluida su trasformazioni (hover).
+*/
+.carousel img {
+  width: clamp(220px, 40vw, 500px); /* Larghezza responsive */
+  height: clamp(120px, 24vw, 300px); /* Altezza responsive */
+  max-width: 90vw; /* Non supera viewport */
+  max-height: 60vw; /* Altezza massima */
+  margin-right: 0; /* Nessun margine extra a destra */
+  flex-shrink: 0; /* Non si restringe troppo */
+  object-fit: cover; /* Ritaglia mantenendo proporzioni */
+  border-radius: 12px; /* Angoli arrotondati */
+  transition: transform 0.2s; /* Animazione su hover */
+}
+
+/*
+  Effetto hover sulle immagini del carousel:
+  - Leggero ingrandimento (scale 1.04) per dare feedback visivo.
+*/
+.carousel img:hover {
+  transform: scale(1.04); /* Ingrandisce leggermente su hover */
+}
+
+/* 
+   LIGHTBOX: visualizzazione fullscreen dell'immagine al click */
+
+/*
+  Overlay della lightbox (schermata scura sopra la pagina):
+  - position: fixed; copre tutta la finestra.
+  - top/left/width/height: 0/0/100vw/100vh per coprire tutto.
+  - background: rgba(0,0,0,0.8); sfondo nero semi-trasparente.
+  - display: none; di default è nascosto.
+  - justify-content/align-items: centra l'immagine.
+  - z-index: 2000; si sovrappone a tutto il resto.
+*/
+.lightbox-overlay {
+    position: fixed; /* Copre tutta la finestra */
+    top: 0; /* Inizio overlay */
+    left: 0; /* Inizio overlay */
+    width: 100vw; /* Larghezza overlay */
+    height: 100vh; /* Altezza overlay */
+    background: rgba(0,0,0,0.8); /* Sfondo nero trasparente */
+    display: none; /* Nascosto di default */
+    justify-content: center; /* Centra immagine orizzontalmente */
+    align-items: center; /* Centra immagine verticalmente */
+    z-index: 2000; /* Sopra tutto il resto */
+}
+
+/*
+  Quando l'overlay è attivo (tramite :target):
+  - display: flex; mostra l'overlay e centra il contenuto.
+*/
+.lightbox-overlay:target {
+    display: flex; /* Mostra overlay quando attivo */
+}
+
+/*
+  Immagine visualizzata in fullscreen nella lightbox:
+  - max-width/max-height: impedisce che l'immagine esca dallo schermo.
+  - box-shadow: ombra bianca per risaltare l'immagine.
+  - border-radius: 12px; angoli arrotondati.
+  - object-fit: contain; l'immagine si adatta senza essere ritagliata.
+*/
+.lightbox-overlay img {
+    max-width: 92vw; /* Larghezza massima immagine */
+    max-height: 80vh; /* Altezza massima immagine */
+    box-shadow: 0 0 15px #fff; /* Ombra bianca */
+    border-radius: 12px; /* Angoli arrotondati */
+    object-fit: contain; /* Adatta senza ritagliare */
+}
+
+/*
+  Bottone di chiusura della lightbox:
+  - position: absolute; posizionato in alto a destra.
+  - font-size: responsivo con clamp.
+  - color: bianco, testo in grassetto.
+  - background: none; nessuno sfondo.
+  - border: none; nessun bordo.
+  - cursor: pointer; puntatore a mano.
+  - text-shadow: ombra nera per visibilità su sfondo chiaro.
+*/
+.lightbox-overlay .close-btn {
+    position: absolute; /* Posizionato in alto a destra */
+    top: 20px; /* Distanza dal top */
+    right: 30px; /* Distanza da destra */
+    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Dimensione responsive */
+    color: white; /* Colore testo */
+    text-decoration: none; /* Nessuna sottolineatura */
+    font-weight: bold; /* Testo grassetto */
+    background: none; /* Nessuno sfondo */
+    border: none; /* Nessun bordo */
+    cursor: pointer; /* Cursore a mano */
+    text-shadow: 0 0 8px #000; /* Ombra nera testo */
+}
+
+/*
+  Media query per schermi piccoli (max-width: 600px):
+  - Le immagini del carousel diventano più larghe e basse.
+  - Il bottone di chiusura della lightbox si riduce e si avvicina ai bordi.
+*/
+@media (max-width: 600px) {
+  .carousel img {
+    width: 90vw; /* Immagini più larghe su mobile */
+    height: 38vw; /* Immagini più basse su mobile */
+    min-height: 120px; /* Altezza minima */
+  }
+  .lightbox-overlay .close-btn {
+    top: 10px; /* Più vicino al bordo su mobile */
+    right: 10px; /* Più vicino al bordo su mobile */
+    font-size: 2rem; /* Più piccolo su mobile */
+  }
+}

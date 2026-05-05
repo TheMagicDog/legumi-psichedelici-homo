@@ -1,0 +1,243 @@
+<!DOCTYPE html> <!-- Tipo documento HTML -->
+<html lang="it"> <!-- Lingua italiana -->
+<head>
+  <meta charset="UTF-8" /> <!-- Charset -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive -->
+  <title>Curiosità - LEGUMINUM</title> <!-- Titolo pagina -->
+  <link rel="stylesheet" href="css/style.css" /> <!-- Stile base -->
+  <link rel="stylesheet" href="css/dark-theme.css"> <!-- Tema scuro -->
+  <link rel="stylesheet" href="css/theme.css"> <!-- Tema -->
+  <style>
+    html, body {
+      margin: 0; /* Nessun margine */
+      padding: 0; /* Nessun padding */
+      height: 100%; /* Altezza piena */
+      min-height: 100vh; /* Minima altezza viewport */
+      overflow-x: hidden; /* Niente scroll orizzontale */
+    }
+
+    body {
+      min-height: 100vh; /* Altezza minima */
+      display: flex; /* Layout flessibile verticale */
+      flex-direction: column; /* Colonna */
+    }
+
+    main {
+      flex: 1 0 auto; /* Occupa spazio rimanente */
+      display: flex; /* Layout flessibile */
+      align-items: flex-start; /* Allinea in alto */
+      justify-content: center; /* Centra orizzontalmente */
+      padding-top: 140px; /* Spazio per navbar */
+      min-height: 0; /* Nessuna altezza minima */
+      box-sizing: border-box; /* Box sizing border-box */
+      position: relative; /* Posizionamento relativo */
+    }
+
+    .carousel-wrapper {
+      display: flex; /* Layout flessibile */
+      align-items: center; /* Centra verticalmente */
+      justify-content: center; /* Centra orizzontalmente */
+      width: 100%; /* Larghezza piena */
+      position: relative; /* Posizionamento relativo */
+    }
+
+    /* Frecce statiche ai lati dello schermo */
+    .carousel-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: none;
+      border: none;
+      color: var(--color-accent, #4a7c59);
+      font-size: 2.2rem;
+      cursor: pointer;
+      padding: 0 10px;
+      user-select: none;
+    }
+    #prevBtn.carousel-arrow {
+      left: 20px;
+    }
+    #nextBtn.carousel-arrow {
+      right: 20px;
+    }
+
+    .carousel-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel-slide {
+      flex: none;
+      width: 100vw;
+      scroll-snap-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+
+    .carousel-content {
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .carousel-content img { /* Immagine all'interno del carosello */
+      max-width: 100%; /* Larghezza massima 100% del contenitore */
+      height: auto; /* Altezza automatica per proporzioni */
+      border-radius: 12px; /* Angoli arrotondati */
+      margin-bottom: 20px; /* Spazio sotto l'immagine */
+    }
+
+    .carousel-content h2 { /* Titolo della curiosità */
+      font-size: 2rem; /* Dimensione grande */
+      margin-bottom: 15px; /* Spazio sotto il titolo */
+      color: var(--color-accent, #4a7c59); /* Colore accentato */
+    }
+
+    .carousel-content p { /* Paragrafo descrizione curiosità */
+      font-size: 1.1rem; /* Dimensione testo */
+      line-height: 1.6; /* Altezza linea per leggibilità */
+      color: #333; /* Colore testo */
+    }
+
+    /* Nascondi scroll */
+    .carousel-container::-webkit-scrollbar { /* Scrollbar carosello */
+      display: none; /* Nasconde la barra di scorrimento */
+    }
+
+    @media (max-width: 768px) { /* Media query per schermi piccoli */
+      .carousel-content h2 { /* Titolo più piccolo su mobile */
+        font-size: 1.5rem;
+      }
+      .carousel-content p { /* Testo più piccolo su mobile */
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+  <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+    <!-- Logo del sito: immagine e nome, allineati orizzontalmente -->
+    <h1 class="logo" style="display: flex; align-items: center; gap: 10px;">
+      <img src="img/logos.png" alt="logos" style="height: 40px; width: auto;" />
+      <a href="index.html" style="text-decoration: none; color: inherit;">LEGUMINUM</a>
+    </h1>
+
+    <nav>
+      <!-- Icona hamburger per menu mobile, visibile solo su schermi piccoli -->
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+      <ul class="nav-links" id="navLinks">
+        <!-- Link principali del sito -->
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <!-- Menu a tendina per le pagine dei legumi -->
+          <a href="#" class="dropbtn">Legumi ▼</a>
+          <ul class="dropdown-content">
+            <li><a href="fagioli.html">Fagioli</a></li>
+            <li><a href="lenticchie.html">Lenticchie</a></li>
+            <li><a href="ceci.html">Ceci</a></li>
+            <li><a href="piselli.html">Piselli</a></li>
+            <li><a href="fave.html">Fave</a></li>
+          </ul>
+        </li>
+        <li><a href="curiosita.html">Curiosità</a></li>
+        <li><a href="chisiamo.html">Chi siamo</a></li>
+        <!-- Bottone per il quiz: apre una finestra popup -->
+        <button class="quiz-btn" onclick="window.open('quiz-popup.html', '_blank', 'width=700,height=800')">VAI AL QUIZ</button>
+        <!-- Bottone per cambiare tema: mostra un'icona che cambia a seconda del tema attivo -->
+        <button id="psychedelicToggle" class="theme-toggle-btn" aria-label="Cambia tema">
+          <img id="themeIcon" src="img/cambiotema.png" alt="Cambia tema psichedelico" style="height: 36px; width: 36px;">
+        </button>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <!-- Contenuto carosello -->
+  <main>
+  <div class="carousel-wrapper">
+    <button id="prevBtn" class="carousel-arrow" aria-label="Precedente">&#8592;</button>
+    <div class="carousel-container" id="carousel" style="flex: 1;">
+      <!-- CURIOSITÀ 1 -->
+      <section class="carousel-slide">
+        <div class="carousel-content">
+          <img src="img/curiosità/curiosita_noci.jpg" alt="Arachidi" />
+          <h2>Le arachidi sono legumi, non frutta secca!</h2>
+          <p>Molti pensano che le arachidi siano frutta secca come noci o mandorle, ma in realtà appartengono alla famiglia dei legumi. Crescono sottoterra e hanno un profilo nutrizionale simile ai fagioli. Sono una fonte eccellente di proteine, grassi buoni e fibre. Un vero "legume travestito"!</p>
+        </div>
+      </section>
+      <!-- CURIOSITÀ 2 -->
+      <section class="carousel-slide">
+        <div class="carousel-content">
+          <img src="img/curiosità/curiosita_lenticchie.jpg" alt="Lenticchie egiziane" />
+          <h2>Le lenticchie sono tra i primi cibi coltivati dall'uomo</h2>
+          <p>Le lenticchie erano presenti già 7000 anni fa nel bacino del Mediterraneo. Nell'antico Egitto venivano offerte agli dei e considerate un cibo sacro. Ancora oggi, mangiarle a Capodanno è simbolo di abbondanza e prosperità. Sono piccole, ma ricche di ferro e proteine!</p>
+        </div>
+      </section>
+      <!-- CURIOSITÀ 3 -->
+      <section class="carousel-slide">
+        <div class="carousel-content">
+          <img src="img/curiosità/curiosita_soia.jpg" alt="Soia" />
+          <h2>La soia: il re dei legumi proteici</h2>
+          <p>La soia è l'unico legume a contenere tutti gli amminoacidi essenziali, rendendola una proteina completa. È alla base di prodotti come tofu, tempeh e latte di soia. In Asia è coltivata da oltre 3000 anni e oggi è fondamentale per chi segue una dieta vegetale.</p>
+        </div>
+      </section>
+    </div>
+    <button id="nextBtn" class="carousel-arrow" aria-label="Successivo">&#8594;</button>
+  </div>
+</main>
+
+      <!-- FOOTER - Piè di pagina -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Legumi Sito. Tutti i diritti riservati. | Email: info@legumi.it | Via Brombeis, Napoli</p>
+        </div>
+    </footer>
+
+  <!-- Script per scorrimento -->
+  <script>
+    const totalSlides = document.querySelectorAll('.carousel-slide').length;
+    let currentSlide = 0;
+
+    function scrollToSlide(index) {
+      const container = document.getElementById('carousel');
+      const width = container.clientWidth;
+      container.scrollTo({ left: width * index, behavior: 'smooth' });
+      currentSlide = index;
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', function() {
+      // Se siamo al primo, vai all'ultimo
+      if (currentSlide === 0) {
+        scrollToSlide(totalSlides - 1);
+      } else {
+        scrollToSlide(currentSlide - 1);
+      }
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', function() {
+      // Se siamo all'ultimo, torna al primo
+      if (currentSlide === totalSlides - 1) {
+        scrollToSlide(0);
+      } else {
+        scrollToSlide(currentSlide + 1);
+      }
+    });
+  </script>
+
+<script src="js/javatema.js"></script>
+
+</body>
+</html>

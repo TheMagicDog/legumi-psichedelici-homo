@@ -1,0 +1,225 @@
+/* ------------------------------
+   NEWSLETTER BOX RESPONSIVE
+------------------------------ */
+/* ----------------------
+   NEWSLETTER BOX
+------------------------ */
+
+/* Box per l'iscrizione alla newsletter */
+.newsletter-box {
+  max-width: 95%; /* Larghezza massima box newsletter */
+  padding: 20px; /* Spaziatura interna box */
+  box-sizing: border-box; /* Include padding e bordo nella larghezza */
+  background-color: #f0f9ef; /* Sfondo verde chiaro box */
+  border-radius: 12px; /* Angoli arrotondati box */
+  text-align: center; /* Testo centrato nel box */
+  margin: 40px auto; /* Margine verticale e centratura orizzontale */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Ombra leggera box */
+}
+
+
+/* Box per l'iscrizione alla newsletter */
+.newsletter-box h2 {
+  font-size: 22px; /* Dimensione titolo newsletter */
+  color: #2b5d36; /* Colore titolo newsletter */
+  margin-bottom: 15px; /* Spazio sotto titolo */
+}
+
+
+/* Box per l'iscrizione alla newsletter */
+.newsletter-box input[type="email"] {
+  padding: 10px; /* Spaziatura interna input */
+  font-size: 16px; /* Dimensione testo input */
+  width: 100%; /* Input prende tutta la larghezza */
+  max-width: 400px; /* Larghezza massima input */
+  margin-bottom: 12px; /* Spazio sotto input */
+  border: 1px solid #ccc; /* Bordo grigio input */
+  border-radius: 6px; /* Angoli arrotondati input */
+}
+
+.newsletter {
+    background-color: var(--color-light, #fff);  /* Sfondo chiaro personalizzabile */
+    padding: clamp(12px, 3vw, 32px);             /* Padding fluido */
+    border-radius: 10px;                         /* Angoli arrotondati box newsletter */
+    margin-top: 4vw;                             /* Spazio sopra box newsletter */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);      /* Ombra leggera box newsletter */
+    text-align: center;                          /* Testo centrato newsletter */
+    width: 100%;                                 /* Larghezza piena */
+    max-width: 480px;                            /* Larghezza massima box newsletter */
+    margin-left: auto;                           /* Centra orizzontalmente */
+    margin-right: auto;                          /* Centra orizzontalmente */
+}
+
+.newsletter h3 {
+    margin-bottom: 10px;                         /* Spazio sotto titolo newsletter */
+    font-size: clamp(1.2rem, 2.5vw, 2rem);       /* Titolo scalabile e responsive */
+}
+
+.newsletter form {
+    display: flex;                               /* Layout flessibile orizzontale */
+    justify-content: center;                     /* Centra elementi orizzontalmente */
+    flex-wrap: wrap;                             /* Va a capo su mobile */
+    gap: 10px;                                  /* Spazio tra input e bottone */
+}
+
+.newsletter input[type="email"] {
+    padding: 10px 15px;                         /* Spaziatura interna input */
+    border: 1px solid #ccc;                     /* Bordo grigio input */
+    border-radius: 8px;                         /* Angoli arrotondati input */
+    width: min(90vw, 250px);                    /* Larghezza flessibile input */
+    font-size: 1rem;                            /* Dimensione testo input */
+    max-width: 100%;                            /* Non supera larghezza box */
+    box-sizing: border-box;                     /* Include padding e bordo */
+}
+
+.newsletter button {
+    padding: 10px 20px;                         /* Spaziatura interna bottone */
+    background-color: var(--color-accent, #4a7c59); /* Sfondo verde bottone */
+    color: white;                               /* Testo bianco bottone */
+    border: none;                               /* Nessun bordo bottone */
+    border-radius: 8px;                         /* Angoli arrotondati bottone */
+    cursor: pointer;                            /* Cursore a mano su hover */
+    transition: background-color 0.3s;          /* Transizione colore sfondo */
+    font-size: 1rem;                            /* Dimensione testo bottone */
+}
+
+.newsletter button:hover {
+    background-color: var(--color-accent-hover, #376b3c);  /* Cambia colore al passaggio */
+}
+
+/* Versione ottimizzata per smartphone */
+@media (max-width: 600px) {
+    .newsletter {
+        padding: 5vw 2vw;                      /* Padding fluido su mobile */
+        margin-top: 7vw;                        /* Più spazio sopra su mobile */
+    }
+    .newsletter h3 {
+        font-size: clamp(1.1rem, 4vw, 1.5rem); /* Titolo più piccolo su mobile */
+    }
+    .newsletter input[type="email"] {
+        width: 100%;                           /* Input prende tutta la larghezza su mobile */
+        font-size: 0.98rem;                    /* Testo leggermente più piccolo */
+    }
+    .newsletter button {
+        width: 100%;                           /* Bottone prende tutta la larghezza su mobile */
+        font-size: 1rem;                       /* Dimensione testo bottone */
+    }
+}
+
+/* ------------------------------
+   BOTTONE CAMBIO TEMA (ICONA)
+------------------------------ */
+.theme-toggle-btn {
+    background: none;
+    border: 2px solid var(--color-accent, #4a7c59);
+    color: var(--color-accent, #4a7c59);
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 18px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--color-accent, #4a7c59);
+    color: #fff;
+}
+
+/* Modalità psichedelica attiva – imposta uno stile esagerato sull'hero title */
+body.psychedelic-mode .hero h2 {
+    color: #fffb00 !important;
+    font-size: 2.7rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 16px #ff00cc, 0 0 8px #00ffe7, 0 0 24px #2d0036;
+}
+
+/* =============================================================
+   MENU HAMBURGER PER MOBILE E RESPONSIVE NAVBAR
+   Questa sezione gestisce la visualizzazione del menu di navigazione
+   su dispositivi mobili e desktop. I commenti spiegano ogni proprietà
+   e la logica dietro la scelta per garantire usabilità e accessibilità.
+   ============================================================= */
+
+/*
+  .hamburger:
+  - display: none; Nasconde l'icona hamburger sui dispositivi desktop (schermi larghi).
+  - font-size: 30px; Rende l'icona grande e facilmente cliccabile su mobile.
+  - cursor: pointer; Cambia il cursore in una mano per indicare che è cliccabile.
+  - user-select: none; Impedisce la selezione accidentale del testo/icona.
+  - color: #4a7c59; Colore verde scuro, coerente con la palette del sito.
+*/
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+    color: #4a7c59;
+}
+
+/*
+  Media query per schermi piccoli (max-width: 973px):
+  - Rende il sito mobile-friendly mostrando l'hamburger e nascondendo il menu classico.
+*/
+@media (max-width: 973px) {
+    /*
+      .hamburger:
+      - display: block; Mostra l'icona hamburger solo su mobile.
+    */
+    .hamburger {
+        display: block;
+    }
+
+    /*
+      .nav-links:
+      - display: none; Nasconde il menu di navigazione principale su mobile.
+      - flex-direction: column; Dispone i link verticalmente per facilità d'uso.
+      - background-color: #e6f2e4; Sfondo chiaro per coerenza visiva.
+      - position: absolute; Posiziona il menu sopra il contenuto.
+      - top: 80px; right: 0; Allinea il menu sotto la navbar, a destra.
+      - width: 100%; Occupa tutta la larghezza dello schermo.
+      - padding: 20px; Spaziatura interna per separare i link.
+      - border-top: 1px solid #ccc; Separatore visivo dalla navbar.
+      - z-index: 999; Si assicura che il menu sia sopra altri elementi.
+    */
+    .nav-links {
+        display: none; /* Nasconde il menu principale su mobile */
+        flex-direction: column; /* Dispone i link verticalmente */
+        background-color: #e6f2e4; /* Sfondo chiaro menu mobile */
+        position: absolute; /* Menu sopra il contenuto */
+        top: 80px; /* Distanza dal top, sotto la navbar */
+        right: 0; /* Allinea a destra */
+        width: 100%; /* Occupa tutta la larghezza */
+        padding: 20px; /* Spazio interno menu mobile */
+        border-top: 1px solid #ccc; /* Separatore sopra menu mobile */
+        z-index: 999; /* Porta il menu sopra altri elementi */
+    }
+
+    /*
+      .nav-links.active:
+      - display: flex; Mostra il menu quando viene attivato tramite JavaScript (es. click sull'hamburger).
+    */
+    .nav-links.active {
+        display: flex; /* Mostra il menu mobile quando attivo */
+    }
+
+    /*
+      .nav-links li, .nav-links button:
+      - margin: 10px 0; Spaziatura verticale tra i link e i bottoni.
+      - text-align: center; Centra il testo per migliore leggibilità su mobile.
+    */
+    .nav-links li,
+    .nav-links button {
+        margin: 10px 0; /* Spazio verticale tra link/bottoni */
+        text-align: center; /* Centra testo su mobile */
+    }
+
+    /*
+      .dropdown:hover .dropdown-content:
+      - position: static; Rende i menu a tendina "aperti" e integrati nel flusso su mobile,
+        invece che sovrapposti come su desktop.
+    */
+    .dropdown:hover .dropdown-content {
+        position: static; /* Menu a tendina integrato su mobile */
+    }
+}

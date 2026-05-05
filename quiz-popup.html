@@ -1,0 +1,239 @@
+<!DOCTYPE html> <!-- Tipo documento HTML -->
+<html lang="it"> <!-- Lingua italiana -->
+<head>
+  <meta charset="UTF-8" /> <!-- Codifica caratteri -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Responsive viewport -->
+  <title>Quiz Legume</title> <!-- Titolo pagina -->
+  <link rel="stylesheet" href="css/dark-theme.css"> <!-- Tema scuro -->
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif; /* Font principale */
+      margin: 0; /* Nessun margine */
+      background-color: #f7f7f7; /* Sfondo chiaro */
+    }
+
+    /* Frame centrale */
+    .quiz-frame {
+      margin: 50px auto; /* Centra verticalmente */
+      background-color: #f2fbe0; /* Sfondo box quiz */
+      width: 90%; /* Larghezza responsive */
+      max-width: 600px; /* Larghezza massima */
+      padding: 25px; /* Spazio interno */
+      border-radius: 20px; /* Angoli arrotondati */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Ombra box */
+    }
+
+    h1, h2 {
+      text-align: center; /* Centra titoli */
+      color: #4d7c0f; /* Colore titoli */
+      margin-bottom: 20px; /* Spazio sotto titoli */
+    }
+
+    .question {
+      margin-bottom: 20px; /* Spazio sotto domanda */
+    }
+
+    label {
+      display: block; /* Ogni opzione su riga nuova */
+      margin: 5px 0; /* Spazio tra opzioni */
+      cursor: pointer; /* Cursore puntatore su opzione */
+    }
+
+    button.submit-btn {
+      display: block; /* Bottone centrato */
+      margin: 15px auto 0; /* Spazio sopra e centrato */
+      background-color: #6c9e2e; /* Colore bottone */
+      color: white; /* Testo bottone */
+      border: none; /* Nessun bordo */
+      padding: 10px 20px; /* Spazio interno bottone */
+      border-radius: 10px; /* Angoli arrotondati bottone */
+      cursor: pointer; /* Cursore puntatore */
+      font-size: 16px; /* Dimensione testo bottone */
+    }
+
+    button.submit-btn:hover {
+      background-color: #5a8b25; /* Colore hover bottone */
+    }
+
+    #result {
+      display: none; /* Risultato nascosto inizialmente */
+      text-align: center; /* Centra risultato */
+    }
+
+    #result img {
+      width: 200px; /* Larghezza immagine risultato */
+      margin: 20px auto; /* Spazio sopra/sotto immagine */
+      border-radius: 10px; /* Angoli arrotondati immagine */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Frame centrale -->
+  <div class="quiz-frame" id="quizBox">
+    <div id="quiz">
+      <h1>Che legume sei?</h1>
+      <div id="question-container"></div>
+      <button class="submit-btn" onclick="nextQuestion()">Invia</button>
+    </div>
+    <div id="result">
+      <h2>Sei un <span id="legume-name"></span>!</h2>
+      <img id="legume-image" src="" alt="Legume">
+      <p id="legume-description"></p>
+    </div>
+  </div>
+
+  <script>
+   
+    // QUIZ: CHE LEGUME SEI?
+    // Questo script gestisce il quiz a scelta multipla e calcola il profilo legume.
+    // Ogni funzione e ciclo è spiegato con commenti dettagliati.
+    
+    // Array di domande:
+    // Ogni oggetto contiene il testo della domanda e le opzioni di risposta.
+    const questions = [
+      {
+        text: "1. Che animale ti rappresenta di più?",
+        options: ["Lumaca", "Gatto", "Cane", "Cavallo", "Falco"]
+      },
+      {
+        text: "2. Cosa ti piace fare nel tempo libero?",
+        options: ["Dormire", "Leggere", "Uscire con gli amici", "Fare sport", "Viaggiare"]
+      },
+      {
+        text: "3. Se dovessi scegliere, preferiresti...",
+        options: ["Camminare con una gamba", "Camminare con una mano", "Camminare rotolando", "Camminare saltellando", "Camminare serpeggiando"]
+      }
+    ];
+
+    // Array dei profili legumi:
+    // Ogni oggetto rappresenta un possibile risultato del quiz, con:
+    // - nome: il nome del legume
+    // - range: intervallo di punteggio per cui viene assegnato
+    // - descrizione: testo descrittivo del profilo
+    // - immagine: percorso all'immagine rappresentativa
+    const legumi = [
+      {
+        nome: "Lenticchia",
+        range: [0, 2],
+        descrizione: "Silenziosa ma instancabile. Sei una persona concreta, modesta, che osserva e non si lascia influenzare.",
+        immagine: "img/menu a tendina legumi/pagina lenticchie.jpg"
+      },
+      {
+        nome: "Fava",
+        range: [3, 5],
+        descrizione: "Rara e decisa. Hai una personalità intensa, sei diretto e a volte un po' testardo, ma sempre autentico.",
+        immagine: "img/menu a tendina legumi/pagina fave.jpg"
+      },
+      {
+        nome: "Fagiolo",
+        range: [6, 8],
+        descrizione: "Sociabile, creativo, con tanta energia dentro. Sei un fagiolo: adattabile, fantasioso, sempre in movimento.",
+        immagine: "img/menu a tendina legumi/pagina fagiolo.jpg"
+      },
+      {
+        nome: "Cecio",
+        range: [9, 10],
+        descrizione: "Solido, affidabile e un po' riflessivo. Ami la semplicità, ma non ti mancano spirito e autoironia.",
+        immagine: "img/menu a tendina legumi/pagina ceci.jpg"
+      },
+      {
+        nome: "Pisello",
+        range: [11, 14],
+        descrizione: "Allegro, ottimista e un po’ imprevedibile. Sei un'anima giocosa, pronta a esplodere in creatività.",
+        immagine: "img/menu a tendina legumi/pagina piselli.jpg"
+      }
+    ];
+
+    // Variabile che tiene traccia della domanda attuale
+    let currentQuestion = 0;
+    // Array che raccoglie le risposte dell'utente (indice dell'opzione scelta per ogni domanda)
+    const answers = [];
+
+    // Funzione che carica la domanda attuale:
+    // - Prende l'indice della domanda da mostrare
+    // - Aggiorna il contenitore con il testo della domanda e le opzioni
+    // - Usa un ciclo for per generare dinamicamente le opzioni come radio button
+    function loadQuestion(index) {
+      const container = document.getElementById("question-container");
+      const q = questions[index];
+      container.innerHTML = `<div class="question"><strong>${q.text}</strong></div>`;
+
+      // Ciclo for per creare le opzioni di risposta
+      for (let i = 0; i < q.options.length; i++) {
+        container.innerHTML += `
+          <label>
+            <input type="radio" name="answer" value="${i}">
+            ${q.options[i]}
+          </label>
+        `;
+      }
+    }
+
+    // Funzione che gestisce il passaggio alla domanda successiva o mostra il risultato finale:
+    // - Controlla che sia stata selezionata una risposta
+    // - Salva la risposta nell'array answers
+    // - Se ci sono altre domande, carica la prossima
+    // - Altrimenti calcola e mostra il risultato
+    function nextQuestion() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      if (!selected) {
+        alert("Seleziona una risposta prima di continuare!");
+        return;
+      }
+
+      // Salva il valore selezionato (indice dell'opzione)
+      answers.push(parseInt(selected.value));
+      currentQuestion++;
+
+      // Se ci sono ancora domande, carica la prossima
+      if (currentQuestion < questions.length) {
+        loadQuestion(currentQuestion);
+      } else {
+        showResult();
+      }
+    }
+
+    // Funzione che calcola il risultato e mostra il profilo legume:
+    // - Somma tutti gli indici delle risposte per ottenere il punteggio totale
+    // - Usa un ciclo while per la somma
+    // - Usa un ciclo do...while per trovare il profilo legume corrispondente al punteggio
+    // - Aggiorna la UI per mostrare il risultato
+    function showResult() {
+      // Somma delle risposte usando ciclo while
+      let total = 0;
+      let i = 0;
+      while (i < answers.length) {
+        total += answers[i];
+        i++;
+      }
+
+      // Trova il legume corrispondente usando ciclo do...while
+      let j = 0;
+      let legume;
+      do {
+        const l = legumi[j];
+        if (total >= l.range[0] && total <= l.range[1]) {
+          legume = l;
+        }
+        j++;
+      } while (!legume && j < legumi.length);
+
+      // Mostra il risultato nella UI
+      document.getElementById("quiz").style.display = "none";
+      document.getElementById("result").style.display = "block";
+      document.getElementById("legume-name").textContent = legume.nome;
+      document.getElementById("legume-description").textContent = legume.descrizione;
+      document.getElementById("legume-image").src = legume.immagine;
+
+      // >>> RIMOSSO: Nessun alert con il punteggio finale <<<
+    }
+
+    // Caricamento iniziale della prima domanda
+    loadQuestion(currentQuestion);
+  </script>
+
+<script src="js/javatema.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,453 @@
+/* ----------------------
+   RESET DI BASE
+------------------------ */
+* { /* Selettore universale: resetta margini, padding e box-sizing */
+  margin: 0; /* Rimuove margine di default da tutti gli elementi */
+  padding: 0; /* Rimuove padding di default da tutti gli elementi */
+  box-sizing: border-box; /* Include padding e bordo nella larghezza/altezza */
+}
+
+/* ----------------------
+   STILE GENERALE BODY
+------------------------ */
+
+/* Stile generale del corpo della pagina: font, colori, layout flessibile */
+body {
+  font-family: 'Montserrat', 'Lato', 'Poppins', 'Roboto', 'Open Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; /* Font principali */
+  line-height: 1.6; /* Altezza linea per leggibilità */
+  background-color: #fefefb; /* Colore sfondo chiaro */
+  color: #333; /* Colore testo principale */
+  min-height: 100vh; /* Altezza minima viewport */
+  display: flex; /* Layout flessibile verticale */
+  flex-direction: column; /* Colonna per header-main-footer */
+  overflow-x: hidden; /* Nasconde scroll orizzontale */
+}
+
+/* ----------------------
+   CONTAINER CENTRALE
+------------------------ */
+
+/* Contenitore centrale con larghezza massima e margini automatici per il centraggio */
+.container {
+  width: 90%; /* Larghezza relativa al viewport */
+  max-width: 1200px; /* Larghezza massima container */
+  margin: 0 auto; /* Centra orizzontalmente */
+}
+
+/* ----------------------
+   NAVBAR
+------------------------ */
+
+/* Barra di navigazione fissa in alto con logo e menu */
+.navbar {
+  background-color: #e6f2e4; /* Sfondo navbar verde chiaro */
+  padding: 20px 0; /* Spaziatura verticale navbar */
+  position: fixed; /* Fissa la navbar in alto */
+  width: 100%; /* Occupa tutta la larghezza */
+  top: 0; /* Allinea in alto */
+  z-index: 1000; /* Priorità sopra altri elementi */
+  border-bottom: 1px solid #dcdcdc; /* Bordo inferiore navbar */
+}
+
+
+/* Barra di navigazione fissa in alto con logo e menu */
+.navbar .logo a {
+  text-decoration: none; /* Rimuove sottolineatura link logo */
+  font-size: 28px; /* Dimensione font logo */
+  color: #4a7c59; /* Colore testo logo */
+  font-weight: bold; /* Grassetto per il logo */
+}
+
+
+/* Barra di navigazione fissa in alto con logo e menu */
+.navbar nav {
+  float: right; /* Allinea il menu a destra */
+}
+
+.nav-links {
+  list-style: none; /* Rimuove i pallini dai link di navigazione */
+  display: flex; /* Layout flessibile per i link */
+  gap: 25px; /* Spaziatura tra i link */
+  padding: 0; /* Rimuove padding */
+  margin: 0; /* Rimuove margine */
+  align-items: center; /* Allinea verticalmente al centro */
+}
+
+.nav-links li a {
+  text-decoration: none; /* Rimuove sottolineatura dai link */
+  color: #4a7c59; /* Colore testo link */
+  font-weight: bold; /* Grassetto per i link */
+  transition: color 0.3s ease; /* Transizione colore al passaggio del mouse */
+}
+
+.nav-links li a:hover {
+  color: #2d4d36; /* Colore testo link al passaggio del mouse */
+}
+
+/* Dropdown */
+
+/* Menu a tendina per la navigazione secondaria */
+.dropdown {
+  position: relative; /* Posizione relativa per il posizionamento assoluto del contenuto a discesa */
+}
+
+.dropbtn {
+  cursor: pointer; /* Cambia il cursore in una mano per indicare cliccabilità */
+  user-select: none; /* Impedisce la selezione del testo nel pulsante dropdown */
+}
+
+/* Rimuove i pallini solo nel menu a tendina */
+.navbar .dropdown-content li {
+  list-style: none; /* Rimuove i pallini dai link nel menu a tendina */
+  padding-left: 0; /* Rimuove il padding sinistro */
+}
+
+
+
+/* Menu a tendina per la navigazione secondaria */
+.dropdown-content {
+  display: none; /* Nasconde il contenuto a discesa per default */
+  position: absolute; /* Posizionamento assoluto rispetto al genitore relativo */
+  background-color: #f9f9f9; /* Colore di sfondo del menu a tendina */
+  min-width: 100px; /* Larghezza minima del menu a tendina */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Ombra per il menu a tendina */
+  border-radius: 4px; /* Angoli arrotondati per il menu a tendina */
+  padding: 10px 20px; /* Spaziatura interna del menu a tendina */
+  z-index: 1000; /* Priorità sopra altri elementi */
+  top: 100%; /* Posiziona sotto il bottone */
+  left: 0; /* Allinea a sinistra */
+}
+
+
+/* Menu a tendina per la navigazione secondaria */
+.dropdown-content li {
+  padding: 8px 20px; /* Spaziatura interna per gli elementi del menu a tendina */
+}
+
+
+/* Menu a tendina per la navigazione secondaria */
+.dropdown-content li a {
+  color: #333; /* Colore testo link nel menu a tendina */
+  text-decoration: none; /* Rimuove sottolineatura dai link nel menu a tendina */
+  display: block; /* Fa sì che il link occupi tutta la larghezza dell'elemento padre */
+}
+
+
+/* Menu a tendina per la navigazione secondaria */
+.dropdown-content li a:hover {
+  background-color: #eee; /* Colore di sfondo al passaggio del mouse sui link del menu a tendina */
+}
+
+
+/* Menu a tendina per la navigazione secondaria */
+.dropdown:hover .dropdown-content {
+  display: block; /* Mostra il contenuto a discesa al passaggio del mouse sul dropdown */
+}
+
+/* ----------------------
+   HERO SECTION
+------------------------ */
+
+/* Sezione introduttiva con titolo e descrizione centrati */
+.hero {
+  background-color: #f0f9ef; /* Colore di sfondo verde molto chiaro */
+  padding: 180px 0 60px 0; /* Spaziatura interna: 180px sopra, 60px sotto */
+  text-align: center; /* Testo centrato */
+}
+
+
+/* Sezione introduttiva con titolo e descrizione centrati */
+.hero h2 {
+  font-size: 45px; /* Dimensione font titolo */
+  margin-bottom: 15px; /* Margine sotto il titolo */
+  color: #4a7c59; /* Colore titolo verde scuro */
+}
+
+
+/* Sezione introduttiva con titolo e descrizione centrati */
+.hero p {
+  font-size: 20px; /* Dimensione font descrizione */
+  color: #555; /* Colore descrizione grigio scuro */
+}
+
+/* ----------------------
+   MAIN CONTENT
+------------------------ */
+
+/* Contenuto principale della pagina */
+main {
+  padding: 40px 0; /* Spaziatura interna: 40px sopra e sotto */
+  flex: 1; /* Occupa tutto lo spazio disponibile */
+}
+
+
+/* Contenuto principale della pagina */
+main h3 {
+  color: #4a7c59; /* Colore titolo sezioni principali */
+  margin-bottom: 15px; /* Margine sotto il titolo della sezione */
+  font-size: 25px; /* Dimensione font titolo sezione */
+}
+
+/* ----------------------
+   FOOTER
+------------------------ */
+
+/* Piè di pagina con informazioni di contatto e copyright */
+.footer {
+  background-color: #e6f2e4; /* Sfondo footer verde chiaro */
+  padding: 20px 0; /* Spaziatura verticale footer */
+  text-align: center; /* Testo centrato nel footer */
+  border-top: 1px solid #dcdcdc; /* Bordo superiore footer */
+}
+
+
+/* Piè di pagina con informazioni di contatto e copyright */
+.footer p {
+  font-size: 14px; /* Dimensione font testo footer */
+}
+
+@media (max-width: 600px) {
+
+/* Piè di pagina con informazioni di contatto e copyright */
+  .footer p {
+    font-size: 12px; /* Dimensione font testo footer su schermi piccoli */
+  }
+}
+
+/* ----------------------
+   CAROUSEL IMMAGINI
+------------------------ */
+
+/* Stili per la galleria di immagini a scorrimento */
+.carousel img {
+  width: 140px; /* Larghezza immagine nella galleria */
+  height: auto; /* Altezza automatica per mantenere le proporzioni */
+  border-radius: 10px; /* Angoli arrotondati per le immagini */
+  margin: 0 8px; /* Margine orizzontale tra le immagini */
+  transition: transform 0.2s; /* Transizione per l'effetto zoom al passaggio del mouse */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Ombra leggera per le immagini */
+}
+
+
+/* Stili per la galleria di immagini a scorrimento */
+.carousel img:hover {
+  transform: scale(1.07); /* Effetto zoom al passaggio del mouse */
+}
+
+@media (max-width: 900px) {
+
+/* Stili per la galleria di immagini a scorrimento */
+  .carousel img {
+    width: 120px; /* Larghezza immagine nella galleria su schermi medi */
+  }
+}
+
+@media (max-width: 600px) {
+
+/* Stili per la galleria di immagini a scorrimento */
+  .carousel img {
+    width: 90px; /* Larghezza immagine nella galleria su schermi piccoli */
+  }
+}
+
+/* ----------------------
+   NUTRIZIONE
+------------------------ */
+
+/* Sezione dei valori nutrizionali con box circolari */
+.nutrizione {
+  display: flex; /* Layout flessibile per i box nutrizionali */
+  flex-wrap: wrap; /* Permette il wrapping dei box su più righe */
+  gap: 20px; /* Spaziatura tra i box */
+  justify-content: center; /* Centra i box orizzontalmente */
+  position: relative; /* Posizione relativa per il posizionamento assoluto degli elementi interni */
+  padding: 35px; /* Spaziatura interna della sezione nutrizione */
+}
+
+
+/* Sezione dei valori nutrizionali con box circolari */
+.nutrizione .box {
+  background-color: #a8d5a2; /* Colore di sfondo verde chiaro per i box */
+  border-radius: 50%; /* Rende i box circolari */
+  width: 120px; /* Larghezza fissa dei box */
+  height: 120px; /* Altezza fissa dei box */
+  display: flex; /* Layout flessibile per il contenuto dei box */
+  flex-direction: column; /* Colonna per icona e testo nei box */
+  align-items: center; /* Allinea al centro orizzontalmente */
+  justify-content: center; /* Allinea al centro verticalmente */
+  text-align: center; /* Testo centrato nel box */
+  color: #003300; /* Colore testo verde scuro */
+  font-weight: bold; /* Grassetto per il testo nei box */
+  font-size: 16px; /* Dimensione font testo nei box */
+  transition: transform 0.3s ease; /* Transizione per l'effetto di ingrandimento al passaggio del mouse */
+  position: relative; /* Posizione relativa per il posizionamento assoluto degli elementi interni */
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.2); /* Ombra per i box nutrizionali */
+}
+
+
+/* Sezione dei valori nutrizionali con box circolari */
+.nutrizione .box:hover {
+  transform: scale(1.1) translate(var(--x, 0), var(--y, 0)); /* Effetto di ingrandimento e spostamento al passaggio del mouse */
+  z-index: 2; /* Porta il box in primo piano */
+}
+
+
+/* Sezione dei valori nutrizionali con box circolari */
+.nutrizione .box:nth-child(1) { --x: -40px; --y: -20px; }
+
+/* Sezione dei valori nutrizionali con box circolari */
+.nutrizione .box:nth-child(2) { --x: 30px;  --y: -30px; }
+
+/* Sezione dei valori nutrizionali con box circolari */
+.nutrizione .box:nth-child(3) { --x: -30px; --y: 40px; }
+
+/* Sezione dei valori nutrizionali con box circolari */
+.nutrizione .box:nth-child(4) { --x: 50px;  --y: 10px; }
+
+/* Sezione dei valori nutrizionali con box circolari */
+.nutrizione .box:nth-child(5) { --x: -20px; --y: 60px; }
+
+/* Sezione dei valori nutrizionali con box circolari */
+.nutrizione .box:nth-child(6) { --x: 20px;  --y: -50px; }
+
+/* Sezione dei valori nutrizionali con box circolari */
+.nutrizione .box:nth-child(7) { --x: 0px;   --y: 30px; }
+
+/* Sezione dei valori nutrizionali con box circolari */
+.nutrizione .box:nth-child(8) { --x: 40px;  --y: -10px; }
+
+
+/* Sezione dei valori nutrizionali con box circolari */
+.nutrizione .numero {
+  font-size: 20px; /* Dimensione font numero valore nutrizionale */
+  font-weight: bold; /* Grassetto per il numero */
+}
+
+
+/* Sezione dei valori nutrizionali con box circolari */
+.nutrizione .etichetta {
+  font-size: 15px; /* Dimensione font etichetta nutrizionale */
+  font-weight: normal; /* Peso font etichetta nutrizionale */
+  margin-top: 5px; /* Spazio sopra etichetta nutrizionale */
+}
+
+/* ----------------------
+   RICETTE
+------------------------ */
+
+/* Sezione delle ricette con immagini e descrizioni */
+.ricetta {
+  display: flex; /* Layout flessibile verticale */
+  flex-direction: column; /* Colonna su mobile */
+  gap: 24px; /* Spazio tra immagine e testo */
+  margin: 50px 0; /* Margine verticale ricetta */
+}
+
+@media (min-width: 700px) {
+
+/* Sezione delle ricette con immagini e descrizioni */
+  .ricetta {
+    flex-direction: row; /* Riga su desktop */
+    align-items: flex-start; /* Allinea in alto */
+  }
+
+
+/* Sezione delle ricette con immagini e descrizioni */
+  .ricetta img {
+    width: 320px; /* Larghezza fissa img desktop */
+    max-width: 45%; /* Max larghezza img */
+  }
+}
+
+
+/* Sezione delle ricette con immagini e descrizioni */
+.ricetta img {
+  width: 100%; /* Img responsive mobile */
+  height: auto; /* Mantiene proporzioni */
+  border-radius: 25px; /* Angoli arrotondati img */
+  object-fit: cover; /* Ritaglio img */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Ombra img */
+}
+
+.testo-ricetta {
+  flex: 1; /* Testo prende spazio rimanente */
+  min-width: 300px; /* Min larghezza testo */
+}
+
+.testo-ricetta h3 {
+  margin-bottom: 20px; /* Spazio sotto titolo ricetta */
+  color: #2b5d36; /* Colore titolo ricetta */
+  font-size: 24px; /* Dimensione titolo ricetta */
+  letter-spacing: 1px; /* Spaziatura lettere titolo */
+  border-bottom: 2px solid #2b5d36; /* Riga sotto titolo */
+  padding-bottom: 5px; /* Spazio sotto riga */
+}
+
+.box-ricetta {
+  background-color: #f4fdf7; /* Sfondo box ricetta */
+  border-left: 5px solid #2b5d36; /* Bordo sinistro box */
+  padding: 15px 20px; /* Spaziatura interna box */
+  margin-bottom: 20px; /* Spazio sotto box */
+  border-radius: 15px; /* Angoli arrotondati box */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Ombra box */
+}
+
+.box-ricetta h4 {
+  margin-bottom: 10px; /* Spazio sotto sottotitolo */
+  color: #2b5d36; /* Colore sottotitolo */
+  font-size: 18px; /* Dimensione sottotitolo */
+  border-bottom: 1px dashed #a3c8b6; /* Riga tratteggiata */
+  padding-bottom: 4px; /* Spazio sotto riga */
+}
+
+.box-ricetta ul {
+  padding-left: 20px; /* Rientro lista ingredienti */
+  margin: 0; /* Nessun margine lista */
+}
+
+.box-ricetta ul li {
+  margin-bottom: 6px; /* Spazio tra ingredienti della lista */
+}
+
+.box-ricetta p {
+  line-height: 1.6; /* Altezza linea per leggibilità descrizione */
+  margin: 0; /* Nessun margine per testo descrizione */
+}
+
+/* STILI PER I PULSANTI GENERICI
+   Questa sezione definisce l'aspetto e il comportamento di tutti gli
+   elementi <button> presenti nel sito. I commenti spiegano ogni
+   proprietà e la logica dietro la scelta. */
+
+/*
+  Stili di base per tutti i pulsanti:
+  - background-color: Colore di sfondo verde acceso (#6c9e2e) per richiamare la natura e la freschezza, in linea con il tema dei legumi.
+  - color: Testo bianco per massimo contrasto e leggibilità.
+  - padding: Spaziatura interna (10px sopra/sotto, 20px ai lati) per rendere il bottone ben visibile e facile da cliccare.
+  - font-size: Dimensione del testo a 16px, leggibile su tutti i dispositivi.
+  - border: Nessun bordo visibile, per un look moderno e pulito.
+  - border-radius: Angoli arrotondati (8px) per un aspetto più "amichevole" e meno spigoloso.
+  - cursor: pointer; Cambia il cursore in una mano quando si passa sopra il bottone, segnalando che è cliccabile.
+  - margin: 20px auto; Spazio sopra e sotto il bottone, centrato orizzontalmente (auto).
+  - display: block; Fa sì che il bottone occupi tutta la riga e sia centrato nel suo contenitore.
+*/
+button {
+  background-color: #6c9e2e; /* Sfondo verde acceso pulsante */
+  color: white; /* Testo bianco pulsante */
+  padding: 10px 20px; /* Spaziatura interna pulsante */
+  font-size: 16px; /* Dimensione testo pulsante */
+  border: none; /* Nessun bordo pulsante */
+  border-radius: 8px; /* Angoli arrotondati pulsante */
+  cursor: pointer; /* Cursore a mano su hover */
+  margin: 20px auto; /* Spazio sopra e sotto, centrato */
+  display: block; /* Occupa tutta la riga */
+}
+
+/*
+  Effetto hover sui pulsanti:
+  - background-color: Cambia il colore di sfondo in un verde più scuro (#5a8b25) quando il mouse passa sopra il bottone.
+    Questo fornisce un feedback visivo immediato all'utente, migliorando l'usabilità e la percezione di "interattività".
+*/
+button:hover {
+  background-color: #5a8b25; /* Cambia colore sfondo su hover */
+}

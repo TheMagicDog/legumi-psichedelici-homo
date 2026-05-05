@@ -1,0 +1,155 @@
+<!DOCTYPE html> <!-- Tipo documento -->
+<html lang="it"> <!-- Lingua italiana -->
+<head>
+    <meta charset="UTF-8"> <!-- Charset -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive -->
+    <meta name="description" content="Scopri chi siamo: la nostra missione è far conoscere il mondo dei legumi."> <!-- SEO descrizione -->
+    <title>Chi siamo - LEGUMINUM</title> <!-- Titolo -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Stile base -->
+    <link rel="stylesheet" href="css/theme.css"> <!-- Tema -->
+    <link rel="stylesheet" href="css/animation.css"> <!-- Animazioni -->
+    <link rel="stylesheet" href="css/dark-theme.css"> <!-- Tema scuro -->
+    <style>
+      .team-section { /* Griglia team */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      .team-member { /* Box membro team */
+        background-color: #f7f7f7;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+
+      .team-member img { /* Immagine membro */
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+      }
+
+      /* Added spacing adjustment */
+      main h3 { /* Spaziatura titoli */
+        margin-bottom: 4px;
+        margin-top: 40px;
+      }
+
+      main section p { /* Spaziatura paragrafi */
+        margin-top: 0;
+      }
+    </style>
+</head>
+<body> <!-- Corpo pagina -->
+<!-- HEADER E NAVBAR
+       Questa sezione contiene il logo, la navigazione principale,
+       il menu a tendina per i legumi, il bottone quiz e il cambio tema.
+       Ogni elemento è pensato per garantire accessibilità, coerenza grafica
+       e facilità d'uso sia su desktop che su mobile.-->
+<header class="navbar"> <!-- Navbar -->
+  <div class="container" style="display: flex; align-items: center; justify-content: space-between;"> <!-- Contenitore header -->
+    <!-- Logo del sito: immagine e nome, allineati orizzontalmente -->
+    <h1 class="logo" style="display: flex; align-items: center; gap: 10px;"> <!-- Logo -->
+      <img src="img/logos.png" alt="logos" style="height: 40px; width: auto;" /> <!-- Immagine logo -->
+      <a href="index.html" style="text-decoration: none; color: inherit;">LEGUMINUM</a> <!-- Link home -->
+    </h1>
+    <nav> <!-- Navigazione -->
+      <!-- Icona hamburger per menu mobile, visibile solo su schermi piccoli -->
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div> <!-- Hamburger -->
+      <ul class="nav-links" id="navLinks"> <!-- Lista nav -->
+        <!-- Link principali del sito -->
+        <li><a href="index.html">Home</a></li> <!-- Home -->
+        <li class="dropdown"> <!-- Dropdown legumi -->
+          <!-- Menu a tendina per le pagine dei legumi -->
+          <a href="#" class="dropbtn">Legumi ▼</a> <!-- Bottone dropdown -->
+          <ul class="dropdown-content"> <!-- Contenuto dropdown -->
+            <li><a href="fagioli.html">Fagioli</a></li> <!-- Fagioli -->
+            <li><a href="lenticchie.html">Lenticchie</a></li> <!-- Lenticchie -->
+            <li><a href="ceci.html">Ceci</a></li> <!-- Ceci -->
+            <li><a href="piselli.html">Piselli</a></li> <!-- Piselli -->
+            <li><a href="fave.html">Fave</a></li> <!-- Fave -->
+          </ul>
+        </li>
+        <li><a href="curiosita.html">Curiosità</a></li> <!-- Curiosità -->
+        <li><a href="chisiamo.html">Chi siamo</a></li> <!-- Chi siamo -->
+        <!-- Bottone per il quiz: apre una finestra popup -->
+        <button class="quiz-btn" onclick="window.open('quiz-popup.html', '_blank', 'width=700,height=800')">VAI AL QUIZ</button> <!-- Quiz -->
+        <!-- Bottone per cambiare tema: mostra un'icona che cambia a seconda del tema attivo -->
+        <button id="psychedelicToggle" class="theme-toggle-btn" aria-label="Cambia tema"> <!-- Tema -->
+          <img id="themeIcon" src="img/cambiotema.png" alt="Cambia tema psichedelico" style="height: 36px; width: 36px;"> <!-- Icona tema -->
+        </button>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero"> <!-- Hero -->
+    <div class="container"> <!-- Contenitore hero -->
+        <h2>La nostra storia</h2> <!-- Titolo hero -->
+        <p>Un progetto nato dalla passione per la sostenibilità, la salute e la cultura alimentare.</p> <!-- Sottotitolo hero -->
+    </div>
+</section>
+
+<main class="container"> <!-- Main -->
+    <section> <!-- Sezione chi siamo -->
+        <h3>Chi siamo</h3> <!-- Titolo chi siamo -->
+        <p>Siamo un piccolo team di appassionati di alimentazione sostenibile, agricoltura e cultura gastronomica. Il progetto <strong>Leguminum</strong> nasce con un obiettivo semplice ma ambizioso: far conoscere i legumi, la loro storia, i loro benefici e il loro ruolo fondamentale per il futuro del pianeta.</p> <!-- Paragrafo chi siamo -->
+    </section>
+
+    <section> <!-- Sezione missione -->
+        <h3>La nostra missione</h3> <!-- Titolo missione -->
+        <p>Crediamo che i legumi non siano solo un alimento, ma una scelta etica e ambientale. Il nostro sito vuole essere uno spazio educativo dove scoprire curiosità, proprietà nutrizionali, ricette e consigli su come integrare i legumi nella vita quotidiana.</p> <!-- Paragrafo missione -->
+    </section>
+
+    <section> <!-- Sezione team -->
+        <h3>Il nostro team</h3> <!-- Titolo team -->
+        <div class="team-section"> <!-- Griglia team -->
+          <div class="team-member"> <!-- Membro 1 -->
+            <img src="img/team/pina.jpg" alt="Giulia R."> <!-- Img Giulia -->
+            <h4>Giulia R.</h4> <!-- Nome Giulia -->
+            <p>Biologa nutrizionista e divulgatrice appassionata di sana alimentazione. Con oltre 10 anni di esperienza, Giulia si dedica alla sensibilizzazione sul valore nutrizionale dei legumi, combinando scienza e passione in ogni progetto educativo.</p> <!-- Bio Giulia -->
+          </div>
+          <div class="team-member"> <!-- Membro 2 -->
+            <img src="img/team/patrizio.png" alt="Luca M."> <!-- Img Luca -->
+            <h4>Luca M.</h4> <!-- Nome Luca -->
+            <p>Agronomo con una profonda conoscenza della biodiversità vegetale. Luca promuove pratiche agricole sostenibili e collabora con piccole realtà locali per valorizzare i legumi autoctoni e la loro coltivazione tradizionale.</p> <!-- Bio Luca -->
+          </div>
+          <div class="team-member"> <!-- Membro 3 -->
+            <img src="img/team/carmela.jpg" alt="Sara P."> <!-- Img Sara -->
+            <h4>Sara P.</h4> <!-- Nome Sara -->
+            <p>Designer e sviluppatrice web, ha dato forma digitale al mondo di LEGUMINUM. Attenta ai dettagli visivi, Sara crea esperienze accessibili e coinvolgenti per diffondere conoscenza in modo chiaro e creativo.</p> <!-- Bio Sara -->
+          </div>
+          <div class="team-member"> <!-- Membro 4 -->
+            <img src="img/team/mauro.jpg" alt="Andrea V."> <!-- Img Andrea -->
+            <h4>Andrea V.</h4> <!-- Nome Andrea -->
+            <p>Giornalista freelance, specializzato in sostenibilità ambientale. Andrea raccoglie e racconta storie legate al mondo dell’alimentazione, puntando i riflettori su scelte alimentari consapevoli e impatti sociali e ambientali.</p> <!-- Bio Andrea -->
+          </div>
+        </div>
+    </section>
+
+    <section> <!-- Sezione perché -->
+        <h3>Perché questo sito?</h3> <!-- Titolo perché -->
+        <p>Vogliamo promuovere una cultura alimentare più consapevole, accessibile e rispettosa dell’ambiente. I legumi sono il simbolo di un’alimentazione sana, economica e sostenibile. Se anche tu condividi questa visione, sei nel posto giusto!</p> <!-- Paragrafo perché -->
+    </section>
+
+    <!-- Video YouTube - parte in automatico senza audio -->
+    <section style="text-align:center; margin: 60px 0 30px 0;"> <!-- Sezione video -->
+      <div style="position:relative; width:100%; max-width:800px; margin:0 auto; aspect-ratio:16/9; background:#000; overflow:hidden;">
+        <iframe src="https://www.youtube.com/embed/25YM2e4TteM?autoplay=1&mute=1&si=I1eGws8LJSXuPWhJ&controls=2&modestbranding=1&showinfo=0&rel=0&fs=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%; aspect-ratio:16/9; object-fit:cover; background:#000;"></iframe> <!-- Video responsive senza barre nere -->
+      </div>
+    </section>
+</main>
+
+<footer class="footer"> <!-- Footer -->
+    <div class="container"> <!-- Contenitore footer -->
+        <p>&copy; 2025 Leguminum. Tutti i diritti riservati. | Email: info@legumi.it | Via Brombeis, Napoli</p> <!-- Testo footer -->
+    </div>
+</footer>
+
+<script src="js/javatema.js"></script> <!-- Script tema -->
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!-- ciao mondo! -->
+<!DOCTYPE html> <!-- Tipo di documento HTML -->
+<html lang="it"> <!-- Lingua italiana -->
+<head>
+    <!-- Impostazione della codifica dei caratteri -->
+    <meta charset="UTF-8"> <!-- Charset -->
+    <!-- Permette il design responsive su dispositivi mobili -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive -->
+    <!-- Descrizione della pagina per i motori di ricerca -->
+    <meta name="description" content="Scopri il mondo dei legumi: informazioni, curiosità e benefici."> <!-- SEO descrizione -->
+    <!-- Titolo che compare sulla scheda del browser -->
+    <title>LEGUMINUM - Home</title> <!-- Titolo pagina -->
+    <!-- Collegamento ai fogli di stile -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Stile base -->
+    <link rel="stylesheet" href="css/theme.css"> <!-- Tema -->
+    <link rel="stylesheet" href="css/animation.css"> <!-- Animazioni -->
+    <link rel="stylesheet" href="css/dark-theme.css"> <!-- Tema scuro -->
+</head>
+
+<body> <!-- Corpo pagina -->
+  <header class="navbar"> <!-- Navbar -->
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between;"> <!-- Contenitore header -->
+      <h1 class="logo" style="display: flex; align-items: center; gap: 10px;"> <!-- Logo -->
+        <img src="img/logos.png" alt="logos" style="height: 40px; width: auto;" /> <!-- Immagine logo -->
+        <a href="index.html" style="text-decoration: none; color: inherit;">LEGUMINUM</a> <!-- Link home -->
+      </h1>
+      <nav> <!-- Navigazione -->
+  <div class="hamburger" onclick="toggleMenu()">&#9776;</div> <!-- Menu mobile -->
+  <ul class="nav-links" id="navLinks"> <!-- Lista link nav -->
+    <!-- ...i tuoi link rimangono identici... -->
+    <li><a href="index.html">Home</a></li> <!-- Link Home -->
+    <li class="dropdown"> <!-- Dropdown legumi -->
+      <a href="#" class="dropbtn">Legumi ▼</a> <!-- Bottone dropdown -->
+      <ul class="dropdown-content"> <!-- Contenuto dropdown -->
+        <li><a href="fagioli.html">Fagioli</a></li> <!-- Fagioli -->
+        <li><a href="lenticchie.html">Lenticchie</a></li> <!-- Lenticchie -->
+        <li><a href="ceci.html">Ceci</a></li> <!-- Ceci -->
+        <li><a href="piselli.html">Piselli</a></li> <!-- Piselli -->
+        <li><a href="fave.html">Fave</a></li> <!-- Fave -->
+      </ul>
+    </li>
+    <li><a href="curiosita.html">Curiosità</a></li> <!-- Curiosità -->
+    <li><a href="chisiamo.html">Chi siamo</a></li> <!-- Chi siamo -->
+     <!--BOTTONE QUIZ
+         Questo bottone apre una finestra popup con il quiz sui legumi.
+         - class="quiz-btn": applica lo stile personalizzato per il bottone quiz.
+         - onclick="window.open(...)": apre la pagina quiz-popup.html in una nuova finestra popup
+           con dimensioni specificate (700x800px), impedendo la navigazione dalla pagina principale.
+         - Il testo "VAI AL QUIZ" è in maiuscolo per attirare l'attenzione.
+         - Il bottone è inserito nella navbar per essere sempre accessibile.-->
+    <button class="quiz-btn" onclick="window.open('quiz-popup.html', '_blank', 'width=700,height=800')">VAI AL QUIZ</button> <!-- Bottone quiz -->
+    <button id="psychedelicToggle" class="theme-toggle-btn" aria-label="Cambia tema"> <!-- Bottone tema -->
+      <img id="themeIcon" src="img/cambiotema.png" alt="Cambia tema psichedelico" style="height: 36px; width: 36px;"> <!-- Icona tema -->
+    </button>
+  </ul>
+</nav>
+
+    </div>
+  </header>
+
+  <!-- HERO SECTION - Sezione introduttiva con slogan -->
+  <section class="hero"> <!-- Hero -->
+    <div class="container"> <!-- Contenitore hero -->
+      <h2>Benvenuti nel mondo dei legumi!</h2> <!-- Titolo hero -->
+      <p>Piccoli, nutrienti e sostenibili. Scopri perché i legumi sono il cibo del futuro.</p> <!-- Sottotitolo hero -->
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT - Corpo principale della pagina -->
+  <main class="container"> <!-- Main -->
+    <section> <!-- Sezione motivazione -->
+      <h3>Perché scegliere i legumi?</h3> <!-- Titolo sezione -->
+      <p style="margin-bottom: 48px;"> <!-- Testo motivazione -->
+  Sono <strong>semi di saggezza</strong>, nati dalla <em>pazienza della terra</em> e dal silenzio delle stagioni. Piccoli, ma con la forza di un raccolto antico: memoria viva di mani che li hanno seminati sotto il sole e raccolti con gratitudine. Nutrono senza chiedere troppo: <strong>proteine</strong>, <strong>fibre</strong>, <strong>minerali</strong>, ma anche <em>rispetto</em> per il suolo, per l'acqua, per il tempo. Crescono senza rumore, eppure <strong>sostengono popoli interi</strong>, diventando simbolo di <em>umiltà</em> e <em>resilienza</em>.
+  <br><br>
+  Come scrisse Virgilio nelle <em>Georgiche</em>:  
+  <em>“Felix qui potuit rerum cognoscere causas”</em> — Felice colui che ha potuto conoscere le cause delle cose.
+  <br><br>
+  E tra quelle cause, c’è la terra che dona, e l’uomo che accoglie. Scegliere i legumi è scegliere un gesto <strong>antico</strong> che parla di <strong>cura, equilibrio e futuro</strong>.
+</p>
+  </section>
+    <section class="galleria-legumi"> <!-- Galleria immagini -->
+      <div class="carousel"> <!-- Carousel -->
+        <a href="#img1"><img src="img/galleria di legumi/1.jpg" alt="Legume 1"></a> <!-- Img 1 -->
+        <a href="#img2"><img src="img/galleria di legumi/2.jpg" alt="Legume 2"></a> <!-- Img 2 -->
+        <a href="#img3"><img src="img/galleria di legumi/3.jpg" alt="Legume 3"></a> <!-- Img 3 -->
+        <a href="#img4"><img src="img/galleria di legumi/4.jpg" alt="Legume 4"></a> <!-- Img 4 -->
+        <a href="#img6"><img src="img/galleria di legumi/6.jpg" alt="Legume 6"></a> <!-- Img 6 -->
+        <a href="#img8"><img src="img/galleria di legumi/8.jpg" alt="Legume 8"></a> <!-- Img 8 -->
+        <a href="#img9"><img src="img/galleria di legumi/9.jpg" alt="Legume 9"></a> <!-- Img 9 -->
+      </div>
+
+      <!-- Lightbox overlays -->
+  <div id="img1" class="lightbox-overlay"> <!-- Overlay 1 -->
+    <a href="#" class="close-btn">&times;</a> <!-- Chiudi -->
+    <img src="img/galleria di legumi/1.jpg" alt="Legume 1 fullscreen"> <!-- Img full 1 -->
+  </div>
+
+  <div id="img2" class="lightbox-overlay"> <!-- Overlay 2 -->
+    <a href="#" class="close-btn">&times;</a>
+    <img src="img/galleria di legumi/2.jpg" alt="Legume 2 fullscreen">
+  </div>
+
+  <div id="img3" class="lightbox-overlay"> <!-- Overlay 3 -->
+    <a href="#" class="close-btn">&times;</a>
+    <img src="img/galleria di legumi/3.jpg" alt="Legume 3 fullscreen">
+  </div>
+
+  <div id="img4" class="lightbox-overlay"> <!-- Overlay 4 -->
+    <a href="#" class="close-btn">&times;</a>
+    <img src="img/galleria di legumi/4.jpg" alt="Legume 4 fullscreen">
+  </div>
+
+  <div id="img6" class="lightbox-overlay"> <!-- Overlay 6 -->
+    <a href="#" class="close-btn">&times;</a>
+    <img src="img/galleria di legumi/6.jpg" alt="Legume 6 fullscreen">
+  </div>
+
+  <div id="img8" class="lightbox-overlay"> <!-- Overlay 8 -->
+    <a href="#" class="close-btn">&times;</a>
+    <img src="img/galleria di legumi/8.jpg" alt="Legume 8 fullscreen">
+  </div>
+
+  <div id="img9" class="lightbox-overlay"> <!-- Overlay 9 -->
+    <a href="#" class="close-btn">&times;</a>
+    <img src="img/galleria di legumi/9.jpg" alt="Legume 9 fullscreen">
+  </div>
+</section>
+
+<div style="height: 48px;"></div> <!-- Spazio -->
+
+<section class="newsletter-box" style="max-width: 400px; margin: 40px auto; text-align: center;"> <!-- Newsletter -->
+  <!-- Titolo della newsletter -->
+  <h2>Iscriviti alla Newsletter</h2> <!-- Titolo newsletter -->
+
+  <!-- Campo input per inserire l'email -->
+  <input 
+    type="email" 
+    id="emailInput" 
+    placeholder="Inserisci la tua email" 
+    required 
+    style="padding: 10px; width: 100%; box-sizing: border-box; margin-bottom: 10px;"
+  > <!-- Input email -->
+
+  <!-- Bottone per inviare l'iscrizione -->
+  <button 
+    onclick="iscriviti()" 
+    style="padding: 10px 20px; cursor: pointer;"
+  >
+    Iscriviti
+  </button> <!-- Bottone iscriviti -->
+
+  <!-- Paragrafo dove verrà mostrato il messaggio di errore o conferma -->
+  <p id="messaggio" style="color: green; margin-top: 15px;"></p> <!-- Messaggio -->
+</section>
+
+</main>
+
+    <!-- FOOTER - Piè di pagina -->
+    <footer class="footer"> <!-- Footer -->
+        <div class="container"> <!-- Contenitore footer -->
+            <p>&copy; 2025 Legumi Sito. Tutti i diritti riservati. | Email: info@legumi.it | Via Brombeis, Napoli</p> <!-- Testo footer -->
+        </div>
+    </footer>
+
+<script src="js/javatema.js"></script> <!-- Script tema -->
+
+<!-- importa il tuo loop infinito -->
+  <script src="js/carousel.js"></script> <!-- Script carousel -->
+</body>
+</html>
